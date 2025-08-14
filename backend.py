@@ -150,7 +150,9 @@ client_mgr = ClientManager()
 
 # ---------------- Peer manager (sync) ----------------
 class PeerManager:
-    def __init__(self): self.peers={}, self.lock=asyncio.Lock()
+    def __init__(self): 
+        self.peers={}
+        self.lock=asyncio.Lock()
     async def connect_to_peer(self, ws_url: str):
         async with self.lock:
             if ws_url in self.peers: return
